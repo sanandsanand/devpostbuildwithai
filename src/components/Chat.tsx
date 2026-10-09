@@ -88,7 +88,7 @@ export function Chat() {
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
             </label>
             <input
-              className="flex-1 bg-transparent px-2 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0"
+              className="flex-1 bg-transparent px-3 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 min-w-0"
               value={input}
               placeholder="Message Challenger..."
               onChange={(e) => setInput(e.target.value)}
