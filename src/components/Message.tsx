@@ -12,7 +12,9 @@ export function Message({ message }: { message: UIMessage }) {
         }`}
       >
         <div className="whitespace-pre-wrap">
-          {message.parts.map((p, i) => (p.type === 'text' ? <span key={i}>{p.text}</span> : null))}
+          {message.parts 
+            ? message.parts.map((p, i) => (p.type === 'text' ? <span key={i}>{p.text}</span> : null))
+            : message.content}
         </div>
       </div>
     </div>
