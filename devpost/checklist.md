@@ -39,7 +39,7 @@ Build mode: fast
   Learner check: Attach an image, verify the preview appears before sending, and see if the AI successfully reads the diagram.
   Commit: `Add image attachment and preview UI`
 
-- [ ] **4. Local Storage Persistence**
+- [x] **4. Local Storage Persistence**
   Becomes usable: If you refresh the page or lose internet, the current chat history is preserved.
   Why now: Completes the final PRD boundary requirement for session recovery.
   PRD ref: `prd.md > States and Boundaries`

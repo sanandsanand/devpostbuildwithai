@@ -5,14 +5,28 @@ import { Message } from '@/components/Message';
 import { useState, useEffect } from 'react';
 
 export function Chat() {
-  const { messages, sendMessage } = useChat({ id: 'chat' });
+  const { messages, sendMessage, setMessages } = useChat({ id: 'chat' });
   const [input, setInput] = useState('');
   const [image, setImage] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const saved = localStorage.getItem('chat_history');
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch (e) {
+        console.error('Failed to parse chat history', e);
+      }
+    }
     setMounted(true);
-  }, []);
+  }, [setMessages]);
+
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem('chat_history', JSON.stringify(messages));
+    }
+  }, [messages, mounted]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
