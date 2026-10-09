@@ -53,56 +53,88 @@ export function Chat() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col h-screen w-full max-w-3xl mx-auto bg-transparent overflow-hidden">
-      <header className="py-4 text-center">
-        <h1 className="text-xl font-semibold text-gray-800">Relentless Challenger</h1>
+    <div className="flex flex-col h-screen w-full bg-transparent overflow-hidden relative">
+      <header className="absolute top-4 left-6 flex items-center gap-3 z-10">
+        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-xl shadow-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+          </svg>
+        </div>
+        <span className="font-bold text-gray-800 tracking-tight text-xl hidden sm:block">Relentless Challenger</span>
       </header>
 
-      <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <div className="flex flex-col h-full w-full max-w-5xl mx-auto pt-16">
+
+      <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {messages.length === 0 ? (
-          <div className="flex items-center justify-center h-full text-gray-400 font-medium text-lg">
-            What are you working on today?
+          <div className="flex flex-col items-center justify-center h-full text-center px-4 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center mb-8 shadow-xl shadow-purple-500/20 rotate-12 hover:rotate-0 transition-all duration-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-12"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600 tracking-tight mb-4">
+              Ready for a challenge?
+            </h2>
+            <p className="text-gray-500 text-lg md:text-xl mb-12 max-w-lg leading-relaxed">
+              I am your relentless AI tutor. Share a code snippet, architecture diagram, or finance concept. I won't just give you the answer—I will test you until you master it.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+              <button onClick={() => setInput("Explain the time complexity of QuickSort.")} className="flex flex-col text-left p-4 rounded-2xl bg-white/40 border border-white/40 hover:bg-white/60 backdrop-blur-md transition-all group">
+                <span className="font-semibold text-gray-800 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> Algorithm Analysis</span>
+                <span className="text-gray-500 text-sm mt-1">Explain the time complexity of QuickSort.</span>
+              </button>
+              <button onClick={() => setInput("Review my attached database schema.")} className="flex flex-col text-left p-4 rounded-2xl bg-white/40 border border-white/40 hover:bg-white/60 backdrop-blur-md transition-all group">
+                <span className="font-semibold text-gray-800 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg> System Design</span>
+                <span className="text-gray-500 text-sm mt-1">Review my attached database schema.</span>
+              </button>
+            </div>
           </div>
         ) : (
           messages.map((m: any) => <Message key={m.id} message={m} />)
         )}
       </main>
 
-      <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-transparent w-full">
-        <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-2 flex flex-col shadow-sm border border-white/50 focus-within:ring-1 focus-within:ring-purple-200 transition-all">
-          {image && (
-            <div className="px-3 pt-3 pb-1 relative inline-block">
-              <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-gray-200" />
+      <div className="relative shrink-0 w-full mt-auto">
+        <div className="absolute left-0 right-0 -top-12 h-12 bg-gradient-to-t from-white/30 to-transparent pointer-events-none" />
+        <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-white/30 backdrop-blur-sm w-full relative z-10">
+          <div className="relative bg-white/90 backdrop-blur-2xl rounded-3xl p-2 flex flex-col shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-white focus-within:ring-2 focus-within:ring-purple-300 focus-within:shadow-lg transition-all duration-300">
+            {image && (
+              <div className="px-3 pt-3 pb-1 relative inline-block">
+                <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-gray-200 shadow-sm" />
+                <button
+                  type="button"
+                  onClick={() => setImage(null)}
+                  className="absolute top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs hover:bg-red-600 shadow-sm transition-colors"
+                >
+                  ×
+                </button>
+              </div>
+            )}
+            <div className="flex items-end gap-2">
+              <label className="flex items-center justify-center cursor-pointer p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 transition-colors rounded-full mb-1 ml-1">
+                <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+              </label>
+              <input
+                className="flex-1 bg-transparent px-3 py-3 text-gray-900 placeholder-gray-400 font-medium focus:outline-none focus:ring-0 min-w-0"
+                value={input}
+                placeholder="Message Challenger..."
+                onChange={(e) => setInput(e.target.value)}
+              />
               <button
-                type="button"
-                onClick={() => setImage(null)}
-                className="absolute top-1 -right-1 bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs hover:bg-gray-700 shadow-sm"
+                type="submit"
+                disabled={!input.trim() && !image}
+                className="p-3 mb-1 mr-1 bg-indigo-600 text-white rounded-full disabled:opacity-40 disabled:cursor-not-allowed hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-all shadow-sm flex items-center justify-center"
               >
-                ×
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
               </button>
             </div>
-          )}
-          <div className="flex items-end gap-2">
-            <label className="flex items-center justify-center cursor-pointer p-2 text-gray-500 hover:text-gray-800 transition-colors rounded-full hover:bg-gray-200">
-              <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-            </label>
-            <input
-              className="flex-1 bg-transparent px-3 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 min-w-0"
-              value={input}
-              placeholder="Message Challenger..."
-              onChange={(e) => setInput(e.target.value)}
-            />
-            <button
-              type="submit"
-              disabled={!input.trim() && !image}
-              className="p-2 mb-1 mr-1 bg-black text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 transition-colors flex items-center justify-center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-            </button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      </div>
     </div>
   );
 }
