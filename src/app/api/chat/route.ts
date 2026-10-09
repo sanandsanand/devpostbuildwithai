@@ -1,4 +1,5 @@
 import { google } from '@ai-sdk/google';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { streamText } from 'ai';
 
 // Allow streaming responses up to 30 seconds
