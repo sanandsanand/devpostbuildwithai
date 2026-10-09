@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-hidden`}
     >
-      <body className="min-h-full flex flex-col bg-white text-gray-900 font-sans overflow-hidden">{children}</body>
+      <body className="min-h-full flex flex-col font-sans overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-teal-50 text-gray-900 animate-breathe" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>{children}</body>
     </html>
   );
 }

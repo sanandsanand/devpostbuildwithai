@@ -53,12 +53,12 @@ export function Chat() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col h-screen w-full max-w-3xl mx-auto bg-white overflow-hidden">
+    <div className="flex flex-col h-screen w-full max-w-3xl mx-auto bg-transparent overflow-hidden">
       <header className="py-4 text-center">
         <h1 className="text-xl font-semibold text-gray-800">Relentless Challenger</h1>
       </header>
 
-      <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar">
+      <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-gray-400 font-medium text-lg">
             What are you working on today?
@@ -68,8 +68,8 @@ export function Chat() {
         )}
       </main>
 
-      <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-white w-full">
-        <div className="relative bg-[#f4f4f4] rounded-3xl p-2 flex flex-col shadow-sm border border-gray-200 focus-within:ring-1 focus-within:ring-gray-300 transition-all">
+      <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-transparent w-full">
+        <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-2 flex flex-col shadow-sm border border-white/50 focus-within:ring-1 focus-within:ring-purple-200 transition-all">
           {image && (
             <div className="px-3 pt-3 pb-1 relative inline-block">
               <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-gray-200" />

@@ -26,7 +26,7 @@ We are building a web-based chat application. The front-end is what the user see
 - **Deployment (Optional):** We will deploy this to Vercel. It takes two clicks and securely stores your API key on their servers so anyone can try it live.
 
 ## Look and Feel
-A minimalist, highly legible aesthetic modeled after ChatGPT. The app uses a pure white background with dark gray typography. The user's messages are styled as clean, soft-gray floating bubbles, while the AI's responses are borderless text. The input bar is a subtle, floating rounded rectangle at the bottom, prioritizing distraction-free communication.
+A sleek, premium aesthetic designed to feel like a final product. The app features a continuous, subtly breathing animated gradient background (indigo to teal) that gives the interface life. The chat interface is built with translucent glassmorphic elements—softly blurred chat bubbles and input bars that let the background colors shine through while maintaining perfect legibility for text and code. Scrollbars are entirely hidden to maintain a distraction-free, polished experience.
 
 ## Components
 

@@ -76,3 +76,4 @@ Activity mode: recap
 - **Post-Build Styling Change 2:** The learner decided on a classic hacker/terminal dark mode with pure black backgrounds, bright green monospace text, and sharp square corners.
 - **Post-Build Styling Change 3:** The learner requested a "visually appealing" premium look. We tried a light-mode Glassmorphism design.
 - **Post-Build Styling Change 4:** The learner ultimately chose a clean, hyper-minimalist UI replicating standard standard conversational AI products (like ChatGPT), with a plain white background, floating soft-gray input box, and borderless AI responses.
+- **Post-Build Styling Change 5:** The learner requested a "final product" feel with a continuous animated background. Implemented a subtle breathing gradient background (`animate-breathe`) and updated chat components to a translucent glassmorphic style to layer beautifully over the animation while hiding all scrollbars.
