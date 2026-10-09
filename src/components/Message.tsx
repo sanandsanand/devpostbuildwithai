@@ -1,4 +1,5 @@
 import { UIMessage } from '@ai-sdk/react';
+import ReactMarkdown from 'react-markdown';
 
 export function Message({ message }: { message: UIMessage }) {
   const isUser = message.role === 'user';
@@ -11,10 +12,12 @@ export function Message({ message }: { message: UIMessage }) {
             : 'bg-zinc-100 text-zinc-900 rounded-bl-sm dark:bg-zinc-800 dark:text-zinc-100'
         }`}
       >
-        <div className="whitespace-pre-wrap">
-          {message.parts 
-            ? message.parts.map((p, i) => (p.type === 'text' ? <span key={i}>{p.text}</span> : null))
-            : message.content}
+        <div className="prose prose-zinc dark:prose-invert max-w-none break-words">
+          <ReactMarkdown>
+            {message.parts 
+              ? message.parts.map((p) => (p.type === 'text' ? p.text : '')).join('')
+              : message.content}
+          </ReactMarkdown>
         </div>
       </div>
     </div>
