@@ -59,13 +59,13 @@ export function Chat() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s' }}>
           <div className="absolute top-[10%] left-[20%] w-[40vw] h-[40vw] bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
-          <div className="absolute bottom-[10%] right-[20%] w-[50vw] h-[50vw] bg-emerald-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }}></div>
+          <div className="absolute bottom-[10%] right-[20%] w-[50vw] h-[50vw] bg-indigo-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }}></div>
           <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[45vw] h-[45vw] bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s' }}></div>
         </div>
       </div>
 
       <header className="absolute top-4 left-6 flex items-center gap-3 z-10">
-        <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-2 rounded-xl shadow-md border border-green-500/30">
+        <div className="bg-gradient-to-br from-indigo-600 to-indigo-700 p-2 rounded-xl shadow-md border border-indigo-500/30">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
             <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
@@ -81,7 +81,7 @@ export function Chat() {
       <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center px-4 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-700 rounded-3xl flex items-center justify-center mb-8 shadow-xl shadow-green-900/40 border border-green-500/30 rotate-12 hover:rotate-0 transition-all duration-500">
+            <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-3xl flex items-center justify-center mb-8 shadow-xl shadow-indigo-900/40 border border-indigo-500/30 rotate-12 hover:rotate-0 transition-all duration-500">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-12"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-slate-400 tracking-tight mb-4">
@@ -92,7 +92,7 @@ export function Chat() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
               <button onClick={() => setInput("Explain the time complexity of QuickSort.")} className="flex flex-col text-left p-4 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:bg-slate-800/70 backdrop-blur-md transition-all group">
-                <span className="font-semibold text-gray-200 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-400"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> Algorithm Analysis</span>
+                <span className="font-semibold text-gray-200 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-400"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> Algorithm Analysis</span>
                 <span className="text-slate-400 text-sm mt-1">Explain the time complexity of QuickSort.</span>
               </button>
               <button onClick={() => setInput("Review my attached database schema.")} className="flex flex-col text-left p-4 rounded-2xl bg-slate-800/40 border border-slate-700/50 hover:bg-slate-800/70 backdrop-blur-md transition-all group">
@@ -109,7 +109,7 @@ export function Chat() {
       <div className="relative shrink-0 w-full mt-auto">
         <div className="absolute left-0 right-0 -top-12 h-12 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none" />
         <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-slate-900/30 backdrop-blur-sm w-full relative z-10">
-          <div className="relative bg-slate-800/80 backdrop-blur-2xl rounded-3xl p-2 flex flex-col shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] border border-slate-700/50 focus-within:ring-2 focus-within:ring-green-500/50 focus-within:shadow-lg transition-all duration-300">
+          <div className="relative bg-slate-800/80 backdrop-blur-2xl rounded-3xl p-2 flex flex-col shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] border border-slate-700/50 focus-within:ring-2 focus-within:ring-indigo-500/50 focus-within:shadow-lg transition-all duration-300">
             {image && (
               <div className="px-3 pt-3 pb-1 relative inline-block">
                 <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-slate-600 shadow-sm" />
@@ -123,7 +123,7 @@ export function Chat() {
               </div>
             )}
             <div className="flex items-end gap-2">
-              <label className="flex items-center justify-center cursor-pointer p-2 text-slate-400 hover:text-green-400 hover:bg-slate-700/50 transition-colors rounded-full mb-1 ml-1">
+              <label className="flex items-center justify-center cursor-pointer p-2 text-slate-400 hover:text-indigo-400 hover:bg-slate-700/50 transition-colors rounded-full mb-1 ml-1">
                 <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
               </label>
@@ -136,7 +136,7 @@ export function Chat() {
               <button
                 type="submit"
                 disabled={!input.trim() && !image}
-                className="p-3 mb-1 mr-1 bg-green-600 text-white rounded-full disabled:opacity-40 disabled:cursor-not-allowed hover:bg-green-500 hover:scale-105 active:scale-95 transition-all shadow-sm flex items-center justify-center"
+                className="p-3 mb-1 mr-1 bg-indigo-600 text-white rounded-full disabled:opacity-40 disabled:cursor-not-allowed hover:bg-indigo-500 hover:scale-105 active:scale-95 transition-all shadow-sm flex items-center justify-center"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
               </button>

@@ -10,7 +10,7 @@ export function Message({ message }: { message: UIMessage }) {
   return (
     <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} mb-8 group`}>
       {!isUser && (
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center mr-3 mt-1 shadow-sm shrink-0 border border-green-500/30">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-indigo-700 flex items-center justify-center mr-3 mt-1 shadow-sm shrink-0 border border-indigo-500/30">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><path d="M9 13v2"></path></svg>
         </div>
       )}
