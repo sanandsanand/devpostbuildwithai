@@ -26,7 +26,7 @@ We are building a web-based chat application. The front-end is what the user see
 - **Deployment (Optional):** We will deploy this to Vercel. It takes two clicks and securely stores your API key on their servers so anyone can try it live.
 
 ## Look and Feel
-A modern messaging app vibe. We will use Tailwind CSS to create a clean, spacious chat interface with distinct chat bubbles (e.g., blue for the user, gray for the AI) and a sleek input bar fixed at the bottom. **Crucially, we will explicitly avoid the generic "AI purple" aesthetic.** The tone of the UI is calm and friendly to contrast the intense tone of the AI's challenges.
+A modern dark mode with neon accents to match the intense tone of the AI's challenges. The main background is a very dark charcoal with stark white text for readability. The clean messaging app layout is preserved, but we use glowing neon electric blue and cyberpunk pink for chat bubbles, borders, and buttons to give it a high-tech vibe.
 
 ## Components
 
