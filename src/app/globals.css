@@ -5,3 +5,13 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+@utility no-scrollbar {
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

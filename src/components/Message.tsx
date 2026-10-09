@@ -12,7 +12,7 @@ export function Message({ message }: { message: UIMessage }) {
             : 'bg-transparent text-gray-900 w-full'
         }`}
       >
-        <div className={isUser ? "whitespace-pre-wrap break-words" : "prose prose-gray max-w-none break-words overflow-x-auto"}>
+        <div className={isUser ? "whitespace-pre-wrap break-words" : "prose prose-gray max-w-none break-words overflow-x-auto no-scrollbar"}>
           {message.parts?.map((p: any, i: number) => 
             p.type === 'image' && <img key={i} src={p.image} className="max-w-md rounded-xl mb-3 shadow-sm border border-gray-100" alt="Attachment" />
           )}

@@ -58,7 +58,7 @@ export function Chat() {
         <h1 className="text-xl font-semibold text-gray-800">Relentless Challenger</h1>
       </header>
 
-      <main className="flex-1 overflow-y-auto px-4 py-6">
+      <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar">
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-gray-400 font-medium text-lg">
             What are you working on today?
