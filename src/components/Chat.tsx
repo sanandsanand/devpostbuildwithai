@@ -5,7 +5,7 @@ import { Message } from '@/components/Message';
 import { useState, useEffect } from 'react';
 
 export function Chat() {
-  const { messages, sendMessage } = useChat({ id: 'chat' });
+  const { messages, append } = useChat({ id: 'chat' });
   const [input, setInput] = useState('');
   const [mounted, setMounted] = useState(false);
 
@@ -15,8 +15,8 @@ export function Chat() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || !sendMessage) return;
-    sendMessage({ parts: [{ type: 'text', text: input }], role: 'user' });
+    if (!input.trim() || !append) return;
+    append({ content: input, role: 'user' });
     setInput('');
   };
 
