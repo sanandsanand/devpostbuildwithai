@@ -54,7 +54,7 @@ export function Chat() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col h-[100dvh] w-full bg-white/20 backdrop-blur-sm overflow-hidden relative">
+    <div className="flex flex-col h-[100dvh] w-full bg-transparent overflow-hidden relative">
       <div className="flex flex-col h-full w-full max-w-5xl mx-auto relative z-10">
 
       <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
