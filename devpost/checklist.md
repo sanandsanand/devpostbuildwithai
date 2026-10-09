@@ -72,4 +72,5 @@ Activity mode: recap
 
 ## Revisions
 
-- **Post-Build Styling Change:** The learner requested changing the initial plain/grayscale UI to a modern dark mode with neon accents (electric blue and cyberpunk pink) to better match the intense tone of the app. `spec.md` was updated, and the Tailwind classes in `Chat.tsx` were modified to reflect this new aesthetic.
+- **Post-Build Styling Change 1:** The learner requested changing the initial plain/grayscale UI to a modern dark mode with neon accents.
+- **Post-Build Styling Change 2:** The learner decided on a classic hacker/terminal dark mode with pure black backgrounds, bright green monospace text, and sharp square corners. `spec.md` and UI components were updated to reflect this retro CLI aesthetic.
