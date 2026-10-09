@@ -53,7 +53,7 @@ export function Chat() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col flex-1 w-full max-w-3xl mx-auto bg-white">
+    <div className="flex flex-col h-screen w-full max-w-3xl mx-auto bg-white overflow-hidden">
       <header className="py-4 text-center">
         <h1 className="text-xl font-semibold text-gray-800">Relentless Challenger</h1>
       </header>
