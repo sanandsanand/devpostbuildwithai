@@ -1,5 +1,8 @@
 import { UIMessage } from '@ai-sdk/react';
 import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 export function Message({ message }: { message: UIMessage }) {
   const isUser = message.role === 'user';
@@ -24,9 +27,9 @@ export function Message({ message }: { message: UIMessage }) {
           {message.parts?.map((p: any, i: number) => 
             p.type === 'image' && <img key={i} src={p.image} className="max-w-md rounded-xl mb-3 shadow-sm border border-gray-100" alt="Attachment" />
           )}
-          <ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
             {message.parts 
-              ? message.parts.map((p) => (p.type === 'text' ? p.text : '')).join('')
+              ? message.parts.map((p: any) => (p.type === 'text' ? p.text : '')).join('')
               : ''}
           </ReactMarkdown>
         </div>
