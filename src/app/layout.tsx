@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased overflow-hidden`}
     >
-      <body className="min-h-full w-full flex flex-col font-sans overflow-hidden bg-slate-50 text-gray-900 bg-[url('/bg-topo-light.jpg')] bg-cover bg-no-repeat bg-fixed animate-topo" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>{children}</body>
+      <body className="min-h-full w-full flex flex-col font-sans overflow-hidden bg-slate-50 text-gray-900 bg-[url('/bg-topo-light.jpg')] bg-cover bg-center bg-no-repeat bg-fixed" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>{children}</body>
     </html>
   );
 }
