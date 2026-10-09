@@ -9,7 +9,7 @@ Build mode: fast
 
 ## Slices
 
-- [ ] **1. Next.js Scaffold and Basic AI Chat**
+- [x] **1. Next.js Scaffold and Basic AI Chat**
   Becomes usable: A running app where you can type a message into a chatbox, send it, and get a basic response back from Gemini.
   Why now: Proves the whole path end to end—Next.js scaffold, Vercel AI SDK integration, and Gemini API connection.
   PRD ref: `prd.md > The Core Journey` (steps 1-3)
