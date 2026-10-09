@@ -54,7 +54,7 @@ export function Chat() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col h-screen w-full bg-white/20 backdrop-blur-sm overflow-hidden relative">
+    <div className="flex flex-col h-[100dvh] w-full bg-white/20 backdrop-blur-sm overflow-hidden relative">
       <header className="absolute top-4 left-6 flex items-center gap-3 z-10">
         <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 p-2 rounded-xl shadow-md border border-indigo-400/30">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
