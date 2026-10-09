@@ -51,7 +51,7 @@ Build mode: fast
 
 ## Hands-on Checkpoints
 
-- [ ] Early usable behavior explored — after Slice 2 (Persona)
+- [x] Early usable behavior explored — after Slice 2 (Persona)
 - [ ] Final kick-the-tires exploration and feedback completed
 
 ## Final Review
