@@ -5,12 +5,20 @@ import { Message } from '@/components/Message';
 import { useState, useEffect } from 'react';
 
 export function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({ id: 'chat' });
+  const { messages, sendMessage } = useChat({ id: 'chat' });
+  const [input, setInput] = useState('');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim() || !sendMessage) return;
+    sendMessage({ content: input, role: 'user' });
+    setInput('');
+  };
 
   if (!mounted) return null;
 
@@ -36,7 +44,7 @@ export function Chat() {
             className="flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
             value={input}
             placeholder="Type your message..."
-            onChange={handleInputChange}
+            onChange={(e) => setInput(e.target.value)}
           />
           <button
             type="submit"
