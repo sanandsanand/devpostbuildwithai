@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relentless Challenger - App Map</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f9fafb;
+        }
+        h1, h2, h3 { color: #111; }
+        .card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #f3f4f6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #ef4444;
+        }
+        .diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f3f4f6;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-weight: 500;
+        }
+        .node {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 2px solid #3b82f6;
+            text-align: center;
+        }
+        .arrow {
+            color: #9ca3af;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relentless Challenger - App Map</h1>
+    
+    <div class="card">
+        <h2>What this is</h2>
+        <p>This is a proof-of-concept AI tutor designed to challenge you on coding and finance. Instead of giving you answers, it pushes back with harder questions to test your true understanding. The app is built with Next.js, Tailwind CSS, and the Vercel AI SDK.</p>
+    </div>
+
+    <div class="card">
+        <h2>How it works (The Core Journey)</h2>
+        <div class="diagram">
+            <div class="node">1. User types message / attaches image<br><small><code>src/components/Chat.tsx</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">2. Strict Persona applied<br><small><code>src/app/api/chat/route.ts</code></small></div>
+            <div class="arrow">→</div>
+            <div class="node">3. AI responds with a challenge<br><small><code>src/components/Chat.tsx</code></small></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Code Route: Where things happen</h2>
+        <ol>
+            <li><strong>The UI & State:</strong> <code>src/components/Chat.tsx</code>
+                <p>This handles the chat interface, image uploads, and saving your chat history to Local Storage.</p>
+            </li>
+            <li><strong>The Brain:</strong> <code>src/app/api/chat/route.ts</code>
+                <p>This is where the magic happens. It takes the messages, enforces the relentless persona using a system prompt, and calls the Gemini API to get a response.</p>
+            </li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>To change this, start here:</h2>
+        <ul>
+            <li><strong>Want to change the AI's personality?</strong> Open <code>src/app/api/chat/route.ts</code> and edit the <code>system</code> prompt string inside the <code>streamText</code> call.</li>
+            <li><strong>Want to change the styling?</strong> Open <code>src/components/Chat.tsx</code> and modify the Tailwind classes (like changing background colors or spacing).</li>
+            <li><strong>Want to clear your chat history?</strong> Since it's stored in Local Storage, you can open your browser's developer tools (F12) > Application > Local Storage and clear the data, or just use the browser in incognito mode.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>A Practice to Reuse</h2>
+        <p><strong>Isolating the unique kernel early:</strong> We built the rigid persona (Slice 2) before adding complex features like image uploads. By testing the prompt logic in plain text first, we verified the core risk of the project without getting distracted by UI complexities. Next time you build an AI app, identify its "unique kernel" and prove it works as early as possible.</p>
+    </div>
+
+    <div class="card">
+        <h2>Running the App</h2>
+        <p>Run <code>npm run dev</code> in your terminal and open <code>http://localhost:3000</code> in your browser.</p>
+        <p><em>Note: This map is a snapshot of the code as of the end of the build phase.</em></p>
+    </div>
+</body>
+</html>
