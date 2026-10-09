@@ -19,7 +19,7 @@ Build mode: fast
   Learner check: Open the local server, send a message, and confirm the chat bubbles appear and the AI replies.
   Commit: `Scaffold Next.js app and basic Vercel AI chat`
 
-- [ ] **2. The Relentless Challenger Persona (The Kernel)**
+- [x] **2. The Relentless Challenger Persona (The Kernel)**
   Becomes usable: The AI stops being a helpful assistant and strictly acts as the relentless tutor, challenging the user on coding/finance and refusing other topics.
   Why now: This is the unique kernel of the app. We must prove the prompt engineering works on plain text before complicating it with images.
   PRD ref: `prd.md > The Challenger AI`, `prd.md > States and Boundaries`
