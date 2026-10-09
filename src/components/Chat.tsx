@@ -16,7 +16,7 @@ export function Chat() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || !sendMessage) return;
-    sendMessage({ content: input, role: 'user' });
+    sendMessage({ parts: [{ type: 'text', text: input }], role: 'user' });
     setInput('');
   };
 

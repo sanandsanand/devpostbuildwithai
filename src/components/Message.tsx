@@ -16,7 +16,7 @@ export function Message({ message }: { message: UIMessage }) {
           <ReactMarkdown>
             {message.parts 
               ? message.parts.map((p) => (p.type === 'text' ? p.text : '')).join('')
-              : message.content}
+              : ''}
           </ReactMarkdown>
         </div>
       </div>
