@@ -13,6 +13,9 @@ export function Message({ message }: { message: UIMessage }) {
         }`}
       >
         <div className={isUser ? "whitespace-pre-wrap break-words" : "prose prose-zinc dark:prose-invert max-w-none break-words"}>
+          {message.parts?.map((p: any, i: number) => 
+            p.type === 'image' && <img key={i} src={p.image} className="max-w-full rounded-lg mb-2" alt="Attachment" />
+          )}
           <ReactMarkdown>
             {message.parts 
               ? message.parts.map((p) => (p.type === 'text' ? p.text : '')).join('')

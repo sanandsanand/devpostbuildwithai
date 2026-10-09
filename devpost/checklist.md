@@ -29,7 +29,7 @@ Build mode: fast
   Learner check: Explain a coding concept to the AI and confirm it pushes back with a harder question instead of just congratulating you.
   Commit: `Implement relentless challenger persona`
 
-- [ ] **3. Image Attachments for Flowcharts**
+- [x] **3. Image Attachments for Flowcharts**
   Becomes usable: Users can attach an image, see a preview above the chatbox, and the AI correctly "reads" the diagram to challenge them.
   Why now: Adds the multimodal vision requirement to the already stable chat loop.
   PRD ref: `prd.md > The Chat Interface`

@@ -9,6 +9,12 @@ export async function POST(req: Request) {
 
   const normalizedMessages = messages.map((m: any) => {
     if (m.parts && !m.content) {
+      if (m.role === 'user') {
+        return {
+          role: m.role,
+          content: m.parts, // Keep parts as content array for user (supports images)
+        };
+      }
       return {
         role: m.role,
         content: m.parts.map((p: any) => p.text || '').join(''),
