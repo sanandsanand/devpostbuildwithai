@@ -55,6 +55,15 @@ export function Chat() {
 
   return (
     <div className="flex flex-col h-screen w-full bg-transparent overflow-hidden relative">
+      {/* Floating Glow Orbs Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute inset-0 animate-spin" style={{ animationDuration: '30s' }}>
+          <div className="absolute top-[10%] left-[20%] w-[40vw] h-[40vw] bg-purple-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+          <div className="absolute bottom-[10%] right-[20%] w-[50vw] h-[50vw] bg-emerald-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s' }}></div>
+          <div className="absolute top-[40%] left-[50%] -translate-x-1/2 w-[45vw] h-[45vw] bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s' }}></div>
+        </div>
+      </div>
+
       <header className="absolute top-4 left-6 flex items-center gap-3 z-10">
         <div className="bg-gradient-to-br from-green-600 to-emerald-700 p-2 rounded-xl shadow-md border border-green-500/30">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -67,7 +76,7 @@ export function Chat() {
         <span className="font-bold text-gray-100 tracking-tight text-xl hidden sm:block drop-shadow-md">Relentless Challenger</span>
       </header>
 
-      <div className="flex flex-col h-full w-full max-w-5xl mx-auto pt-16">
+      <div className="flex flex-col h-full w-full max-w-5xl mx-auto pt-16 relative z-10">
 
       <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {messages.length === 0 ? (
