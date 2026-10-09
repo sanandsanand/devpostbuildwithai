@@ -38,7 +38,7 @@ export function Chat() {
         )}
       </main>
 
-      <form onSubmit={handleSubmit} className="py-4 border-t border-zinc-200 dark:border-zinc-800">
+      <form onSubmit={handleSubmit} className="pt-4 pb-12 border-t border-zinc-200 dark:border-zinc-800">
         <div className="flex gap-2">
           <input
             className="flex-1 rounded-full border border-zinc-300 bg-white px-4 py-3 text-zinc-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
