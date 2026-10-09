@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-gradient-to-br from-indigo-100 via-purple-50 to-rose-100 text-slate-800 font-sans selection:bg-purple-300/50">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-gray-900 font-sans">{children}</body>
     </html>
   );
 }

@@ -26,7 +26,7 @@ We are building a web-based chat application. The front-end is what the user see
 - **Deployment (Optional):** We will deploy this to Vercel. It takes two clicks and securely stores your API key on their servers so anyone can try it live.
 
 ## Look and Feel
-A premium light-mode Glassmorphism aesthetic. The background is a soft, colorful gradient mesh. The UI elements (chat bubbles, input bar) use frosted glass effects with translucent white backgrounds, subtle blurs, white borders, and soft drop shadows to create a highly polished, visually appealing modern interface.
+A minimalist, highly legible aesthetic modeled after ChatGPT. The app uses a pure white background with dark gray typography. The user's messages are styled as clean, soft-gray floating bubbles, while the AI's responses are borderless text. The input bar is a subtle, floating rounded rectangle at the bottom, prioritizing distraction-free communication.
 
 ## Components
 

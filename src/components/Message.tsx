@@ -4,17 +4,17 @@ import ReactMarkdown from 'react-markdown';
 export function Message({ message }: { message: UIMessage }) {
   const isUser = message.role === 'user';
   return (
-    <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
+    <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} mb-6`}>
       <div
-        className={`max-w-[80%] min-w-0 px-5 py-4 overflow-x-auto backdrop-blur-md shadow-sm ${
+        className={`max-w-[85%] min-w-0 overflow-x-auto ${
           isUser
-            ? 'bg-white/70 border border-white/60 text-slate-900 rounded-3xl rounded-br-sm'
-            : 'bg-white/50 border border-white/40 text-slate-800 rounded-3xl rounded-bl-sm'
+            ? 'bg-[#f4f4f4] text-gray-900 rounded-3xl px-5 py-3'
+            : 'bg-transparent text-gray-900 px-2 py-2'
         }`}
       >
-        <div className={isUser ? "whitespace-pre-wrap break-words" : "prose max-w-none break-words text-slate-800 [&_*]:text-slate-800"}>
+        <div className={isUser ? "whitespace-pre-wrap break-words" : "prose prose-gray max-w-none break-words"}>
           {message.parts?.map((p: any, i: number) => 
-            p.type === 'image' && <img key={i} src={p.image} className="max-w-full rounded-xl mb-3 border border-white/50 shadow-sm" alt="Attachment" />
+            p.type === 'image' && <img key={i} src={p.image} className="max-w-md rounded-xl mb-3 shadow-sm border border-gray-100" alt="Attachment" />
           )}
           <ReactMarkdown>
             {message.parts 

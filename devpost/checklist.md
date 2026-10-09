@@ -74,4 +74,5 @@ Activity mode: recap
 
 - **Post-Build Styling Change 1:** The learner requested changing the initial plain/grayscale UI to a modern dark mode with neon accents.
 - **Post-Build Styling Change 2:** The learner decided on a classic hacker/terminal dark mode with pure black backgrounds, bright green monospace text, and sharp square corners.
-- **Post-Build Styling Change 3:** The learner found the terminal style too generic and requested a "visually appealing" premium look. We agreed on a light-mode Glassmorphism design with frosted glass effects and a soft gradient background. `spec.md` and UI components were updated.
+- **Post-Build Styling Change 3:** The learner requested a "visually appealing" premium look. We tried a light-mode Glassmorphism design.
+- **Post-Build Styling Change 4:** The learner ultimately chose a clean, hyper-minimalist UI replicating standard standard conversational AI products (like ChatGPT), with a plain white background, floating soft-gray input box, and borderless AI responses.

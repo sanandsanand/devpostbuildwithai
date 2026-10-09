@@ -53,52 +53,54 @@ export function Chat() {
   if (!mounted) return null;
 
   return (
-    <div className="flex flex-col h-screen max-w-3xl mx-auto px-4 bg-transparent">
-      <header className="py-6 border-b border-white/20">
-        <h1 className="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-purple-600 to-rose-500 bg-clip-text text-transparent drop-shadow-sm">Relentless Challenger</h1>
+    <div className="flex flex-col h-screen max-w-3xl mx-auto bg-white">
+      <header className="py-4 text-center">
+        <h1 className="text-xl font-semibold text-gray-800">Relentless Challenger</h1>
       </header>
 
-      <main className="flex-1 overflow-y-auto py-6">
+      <main className="flex-1 overflow-y-auto px-4 py-6">
         {messages.length === 0 ? (
-          <div className="text-center text-slate-500/80 mt-20 font-medium">
-            Ready for your first challenge. Send a message to start.
+          <div className="flex items-center justify-center h-full text-gray-400 font-medium text-lg">
+            What are you working on today?
           </div>
         ) : (
           messages.map((m: any) => <Message key={m.id} message={m} />)
         )}
       </main>
 
-      <form onSubmit={handleSubmit} className="pt-4 pb-12 border-t border-white/20">
-        {image && (
-          <div className="mb-4 relative inline-block">
-            <img src={image} alt="Upload preview" className="h-24 w-auto rounded-xl border border-white/60 shadow-md backdrop-blur-sm" />
+      <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-white w-full">
+        <div className="relative bg-[#f4f4f4] rounded-3xl p-2 flex flex-col shadow-sm border border-gray-200 focus-within:ring-1 focus-within:ring-gray-300 transition-all">
+          {image && (
+            <div className="px-3 pt-3 pb-1 relative inline-block">
+              <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-gray-200" />
+              <button
+                type="button"
+                onClick={() => setImage(null)}
+                className="absolute top-1 -right-1 bg-gray-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs hover:bg-gray-700 shadow-sm"
+              >
+                ×
+              </button>
+            </div>
+          )}
+          <div className="flex items-end gap-2">
+            <label className="flex items-center justify-center cursor-pointer p-2 text-gray-500 hover:text-gray-800 transition-colors rounded-full hover:bg-gray-200">
+              <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            </label>
+            <input
+              className="flex-1 bg-transparent px-2 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0"
+              value={input}
+              placeholder="Message Challenger..."
+              onChange={(e) => setInput(e.target.value)}
+            />
             <button
-              type="button"
-              onClick={() => setImage(null)}
-              className="absolute -top-2 -right-2 bg-white/80 backdrop-blur-md text-slate-800 border border-white/60 rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-white shadow-sm"
+              type="submit"
+              disabled={!input.trim() && !image}
+              className="p-2 mb-1 mr-1 bg-black text-white rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800 transition-colors flex items-center justify-center"
             >
-              ×
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
             </button>
           </div>
-        )}
-        <div className="flex gap-2">
-          <label className="flex items-center justify-center cursor-pointer bg-white/40 backdrop-blur-md border border-white/60 px-4 py-3 text-slate-600 transition-all hover:bg-white/60 shadow-sm rounded-full">
-            <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-          </label>
-          <input
-            className="flex-1 bg-white/40 backdrop-blur-md border border-white/60 px-4 py-3 text-slate-800 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-400/50 rounded-full shadow-inner"
-            value={input}
-            placeholder="Type your message..."
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <button
-            type="submit"
-            disabled={!input.trim() && !image}
-            className="bg-gradient-to-r from-purple-500 to-rose-500 text-white font-semibold hover:opacity-90 shadow-md rounded-full px-6 py-3 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
-          >
-            Send
-          </button>
         </div>
       </form>
     </div>
