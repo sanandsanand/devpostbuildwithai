@@ -98,9 +98,9 @@ export function Chat() {
       </main>
 
       <div className="relative shrink-0 w-full mt-auto">
-        <div className="absolute left-0 right-0 -top-12 h-12 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none" />
-        <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-slate-900/30 backdrop-blur-sm w-full relative z-10">
-          <div className="relative bg-slate-800/80 backdrop-blur-2xl rounded-3xl p-2 flex flex-col shadow-[0_4px_20px_-4px_rgba(0,0,0,0.3)] border border-slate-700/50 focus-within:ring-2 focus-within:ring-indigo-500/50 focus-within:shadow-lg transition-all duration-300">
+        <div className="absolute left-0 right-0 -top-16 h-16 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+        <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-gradient-to-t from-black/40 to-black/20 w-full relative z-10">
+          <div className="relative bg-black/20 backdrop-blur-xl rounded-3xl p-2 flex flex-col shadow-[0_4px_30px_-4px_rgba(0,0,0,0.5)] border border-white/10 focus-within:ring-2 focus-within:ring-indigo-500/50 focus-within:shadow-lg transition-all duration-300">
             {image && (
               <div className="px-3 pt-3 pb-1 relative inline-block">
                 <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-slate-600 shadow-sm" />
