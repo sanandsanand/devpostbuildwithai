@@ -98,8 +98,7 @@ export function Chat() {
       </main>
 
       <div className="relative shrink-0 w-full mt-auto">
-        <div className="absolute left-0 right-0 -top-16 h-16 bg-gradient-to-t from-white/40 to-transparent pointer-events-none" />
-        <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 bg-gradient-to-t from-white/40 to-white/20 w-full relative z-10">
+        <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 w-full relative z-10">
           <div className="relative bg-white/40 backdrop-blur-xl rounded-3xl p-2 flex flex-col shadow-[0_4px_30px_-4px_rgba(0,0,0,0.1)] border border-white/60 focus-within:ring-2 focus-within:ring-indigo-500/50 focus-within:shadow-lg transition-all duration-300">
             {image && (
               <div className="px-3 pt-3 pb-1 relative inline-block">
