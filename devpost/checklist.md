@@ -73,4 +73,5 @@ Activity mode: recap
 ## Revisions
 
 - **Post-Build Styling Change 1:** The learner requested changing the initial plain/grayscale UI to a modern dark mode with neon accents.
-- **Post-Build Styling Change 2:** The learner decided on a classic hacker/terminal dark mode with pure black backgrounds, bright green monospace text, and sharp square corners. `spec.md` and UI components were updated to reflect this retro CLI aesthetic.
+- **Post-Build Styling Change 2:** The learner decided on a classic hacker/terminal dark mode with pure black backgrounds, bright green monospace text, and sharp square corners.
+- **Post-Build Styling Change 3:** The learner found the terminal style too generic and requested a "visually appealing" premium look. We agreed on a light-mode Glassmorphism design with frosted glass effects and a soft gradient background. `spec.md` and UI components were updated.

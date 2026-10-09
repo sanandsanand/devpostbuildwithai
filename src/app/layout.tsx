@@ -22,9 +22,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-green-500 font-mono">{children}</body>
+      <body className="min-h-full flex flex-col bg-gradient-to-br from-indigo-100 via-purple-50 to-rose-100 text-slate-800 font-sans selection:bg-purple-300/50">{children}</body>
     </html>
   );
 }

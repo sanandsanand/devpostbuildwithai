@@ -26,7 +26,7 @@ We are building a web-based chat application. The front-end is what the user see
 - **Deployment (Optional):** We will deploy this to Vercel. It takes two clicks and securely stores your API key on their servers so anyone can try it live.
 
 ## Look and Feel
-A classic hacker/terminal dark mode to match the intense tone of the AI's challenges. The main background is pure black with bright green monospace text. UI elements are minimal with thin green borders and sharp, square corners to feel like an intense, retro command-line interface.
+A premium light-mode Glassmorphism aesthetic. The background is a soft, colorful gradient mesh. The UI elements (chat bubbles, input bar) use frosted glass effects with translucent white backgrounds, subtle blurs, white borders, and soft drop shadows to create a highly polished, visually appealing modern interface.
 
 ## Components
 
