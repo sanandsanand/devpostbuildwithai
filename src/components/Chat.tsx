@@ -10,6 +10,7 @@ export function Chat() {
   const [input, setInput] = useState('');
   const [image, setImage] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [fullScreenPreview, setFullScreenPreview] = useState<string | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('chat_history');
@@ -90,7 +91,7 @@ export function Chat() {
           <div className="relative bg-white/40 backdrop-blur-xl rounded-3xl p-2 flex flex-col shadow-[0_4px_30px_-4px_rgba(0,0,0,0.1)] border border-white/60 focus-within:ring-2 focus-within:ring-indigo-500/50 focus-within:shadow-lg transition-all duration-300">
             {image && (
               <div className="px-3 pt-3 pb-1 relative inline-block">
-                <img src={image} alt="Upload preview" className="h-16 w-auto rounded-lg border border-slate-300 shadow-sm" />
+                <img src={image} onClick={() => setFullScreenPreview(image)} alt="Upload preview" className="h-16 w-auto rounded-lg border border-slate-300 shadow-sm cursor-zoom-in hover:opacity-90 transition-opacity" />
                 <button
                   type="button"
                   onClick={() => setImage(null)}
@@ -123,6 +124,18 @@ export function Chat() {
         </form>
       </div>
       </div>
+      {fullScreenPreview && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 backdrop-blur-md p-4 cursor-zoom-out"
+          onClick={() => setFullScreenPreview(null)}
+        >
+          <img 
+            src={fullScreenPreview} 
+            alt="Maximized" 
+            className="max-w-full max-h-full rounded-2xl shadow-2xl"
+          />
+        </div>
+      )}
     </div>
   );
 }
