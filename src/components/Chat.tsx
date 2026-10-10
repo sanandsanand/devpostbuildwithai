@@ -3,14 +3,34 @@
 
 import { useChat } from '@ai-sdk/react';
 import { Message } from '@/components/Message';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function Chat() {
-  const { messages, sendMessage, setMessages } = useChat({ id: 'chat' });
+  const { messages, sendMessage, setMessages, error } = useChat({ id: 'chat' });
   const [input, setInput] = useState('');
   const [image, setImage] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const [fullScreenPreview, setFullScreenPreview] = useState<string | null>(null);
+  
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLElement>(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+    setShowScrollButton(scrollHeight - scrollTop - clientHeight > 100);
+  };
+
+  useEffect(() => {
+    if (!showScrollButton) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'auto' });
+    }
+  }, [messages]);
 
   useEffect(() => {
     const saved = localStorage.getItem('chat_history');
@@ -56,9 +76,18 @@ export function Chat() {
 
   return (
     <div className="flex flex-col h-[100dvh] w-full bg-transparent overflow-hidden relative">
+      
+      {/* Static Logo */}
+      <img 
+        src="/hex-yellow-bold.png" 
+        alt="Logo" 
+        className="absolute top-4 left-4 sm:top-6 sm:left-6 w-14 h-14 sm:w-16 sm:h-16 object-contain z-50 drop-shadow-sm pointer-events-none" 
+      />
+
+
       <div className="flex flex-col h-full w-full max-w-5xl mx-auto relative z-10">
 
-      <main className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+      <main ref={scrollRef} onScroll={handleScroll} className="flex-1 overflow-y-auto px-4 py-6 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center px-4 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="w-20 h-20 bg-white/40 backdrop-blur-md rounded-3xl flex items-center justify-center mb-8 shadow-sm border border-white/60 text-slate-700 rotate-12 hover:rotate-0 transition-all duration-500">
@@ -84,9 +113,30 @@ export function Chat() {
         ) : (
           messages.map((m: any) => <Message key={m.id} message={m} />)
         )}
+        <div ref={messagesEndRef} />
       </main>
 
       <div className="relative shrink-0 w-full mt-auto">
+        {showScrollButton && (
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20">
+            <button
+              onClick={scrollToBottom}
+              className="flex items-center gap-2 px-4 py-2 bg-slate-800/80 backdrop-blur-md text-white rounded-full text-sm font-medium shadow-lg hover:bg-slate-700 hover:shadow-xl transition-all duration-300 animate-in fade-in slide-in-from-bottom-2 border border-slate-600/50"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+              Jump to latest
+            </button>
+          </div>
+        )}
+        {error && (
+          <div className="mx-4 mb-4 p-4 rounded-2xl bg-red-500/10 border border-red-500/50 backdrop-blur-md relative z-10 flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-500 shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <div>
+              <h3 className="text-red-600 font-bold text-sm mb-1">API Error</h3>
+              <p className="text-red-500/80 text-xs font-medium">{error.message || 'Something went wrong. You may have hit an API rate limit.'}</p>
+            </div>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="px-4 pb-6 pt-2 w-full relative z-10">
           <div className="relative bg-white/40 backdrop-blur-xl rounded-3xl p-2 flex flex-col shadow-[0_4px_30px_-4px_rgba(0,0,0,0.1)] border border-white/60 focus-within:ring-2 focus-within:ring-indigo-500/50 focus-within:shadow-lg transition-all duration-300">
             {image && (
