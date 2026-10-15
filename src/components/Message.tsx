@@ -31,11 +31,17 @@ export function Message({ message }: { message: UIMessage }) {
             {message.parts?.map((p: any, i: number) => 
               p.type === 'image' && <img key={i} src={p.image} onClick={() => setZoomedImage(p.image)} className="max-w-md w-full rounded-xl mb-3 shadow-sm border border-gray-200/50 cursor-zoom-in hover:opacity-90 transition-opacity" alt="Attachment" />
             )}
-            <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
-              {message.parts 
+            {isUser ? (
+              message.parts 
                 ? message.parts.map((p: any) => (p.type === 'text' ? p.text : '')).join('')
-                : ''}
-            </ReactMarkdown>
+                : ''
+            ) : (
+              <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+                {message.parts 
+                  ? message.parts.map((p: any) => (p.type === 'text' ? p.text : '')).join('')
+                  : ''}
+              </ReactMarkdown>
+            )}
           </div>
         </div>
         {isUser && (
@@ -57,4 +63,5 @@ export function Message({ message }: { message: UIMessage }) {
         </div>
       )}
     </>
-  );}
+  );
+}
