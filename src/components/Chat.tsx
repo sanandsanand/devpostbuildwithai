@@ -141,37 +141,16 @@ export function Chat() {
     <div className="flex flex-col h-[100dvh] w-full bg-transparent overflow-hidden relative">
       
       {/* Floating Logo (Top-Left) */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-50 flex items-center gap-3 pointer-events-none">
-        <img 
-          src="/hex-yellow-bold.png" 
-          alt="Proof Logo" 
-          className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-sm" 
-        />
-        <div className="hidden sm:flex flex-col">
-          <span className="font-extrabold text-slate-800 text-lg tracking-tight leading-none">Proof</span>
-          <span className="text-[10px] font-semibold tracking-wider uppercase text-indigo-600/90 mt-1">Coding &amp; Finance</span>
-        </div>
-      </div>
-
-      {/* Floating New Chat Pill (Top-Right, Zero Height Lost) */}
-      <button
-        onClick={handleResetChat}
-        title="Start a new chat"
-        className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-2 px-3.5 py-2 bg-white/50 hover:bg-white/70 active:scale-95 backdrop-blur-md rounded-full border border-white/60 shadow-sm text-slate-700 text-xs sm:text-sm font-semibold transition-all duration-200 group cursor-pointer"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-600 group-hover:rotate-180 transition-transform duration-500">
-          <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-          <path d="M21 3v5h-5"></path>
-          <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-          <path d="M8 16H3v5"></path>
-        </svg>
-        <span>New Chat</span>
-      </button>
+      <img 
+        src="/hex-yellow-bold.png" 
+        alt="Proof Logo" 
+        className="absolute top-4 left-4 sm:top-6 sm:left-6 w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-sm pointer-events-none z-50" 
+      />
 
       {/* Full-Height Edge-to-Edge Chat Area */}
-      <div className="flex flex-col h-full w-full max-w-5xl mx-auto relative z-10 pt-16 sm:pt-20">
+      <div className="flex flex-col h-full w-full max-w-5xl mx-auto relative z-10">
 
-        <main ref={scrollRef} onScroll={handleScroll} className="flex-1 overflow-y-auto px-4 py-4 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <main ref={scrollRef} onScroll={handleScroll} className="flex-1 overflow-y-auto px-4 pt-6 pb-4 no-scrollbar relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center px-4 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
               <div className="w-20 h-20 bg-white/40 backdrop-blur-md rounded-3xl flex items-center justify-center mb-8 shadow-sm border border-white/60 text-slate-700 rotate-12 hover:rotate-0 transition-all duration-500">
@@ -260,10 +239,24 @@ export function Chat() {
                 </div>
               )}
 
-              <div className="flex items-end gap-2">
-                <label className="flex items-center justify-center cursor-pointer p-2.5 text-slate-500 hover:text-indigo-600 hover:bg-white/50 transition-colors rounded-full mb-1 ml-1" title="Attach diagram or flowchart">
+              <div className="flex items-end gap-1.5 sm:gap-2">
+                <button
+                  type="button"
+                  onClick={handleResetChat}
+                  className="flex items-center justify-center cursor-pointer p-2.5 text-slate-500 hover:text-indigo-600 hover:bg-white/50 transition-colors rounded-full mb-1 ml-1 group"
+                  title="New Chat (Reset conversation)"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform duration-500">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                  </svg>
+                </button>
+
+                <label className="flex items-center justify-center cursor-pointer p-2.5 text-slate-500 hover:text-indigo-600 hover:bg-white/50 transition-colors rounded-full mb-1" title="Attach diagram or flowchart">
                   <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                 </label>
 
                 {/* Multiline Explanation Textarea */}
