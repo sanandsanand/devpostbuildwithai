@@ -9,6 +9,10 @@ import 'katex/dist/katex.min.css';
 export function Message({ message }: { message: UIMessage }) {
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const isUser = message.role === 'user';
+  const textContent = message.parts 
+    ? message.parts.map((p: any) => (p.type === 'text' ? p.text : '')).join('')
+    : (typeof (message as any).content === 'string' ? (message as any).content : '');
+
   return (
     <>
       <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} mb-8 group`}>
@@ -32,14 +36,10 @@ export function Message({ message }: { message: UIMessage }) {
               p.type === 'image' && <img key={i} src={p.image} onClick={() => setZoomedImage(p.image)} className="max-w-md w-full rounded-xl mb-3 shadow-sm border border-gray-200/50 cursor-zoom-in hover:opacity-90 transition-opacity" alt="Attachment" />
             )}
             {isUser ? (
-              message.parts 
-                ? message.parts.map((p: any) => (p.type === 'text' ? p.text : '')).join('')
-                : ''
+              textContent
             ) : (
               <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
-                {message.parts 
-                  ? message.parts.map((p: any) => (p.type === 'text' ? p.text : '')).join('')
-                  : ''}
+                {textContent}
               </ReactMarkdown>
             )}
           </div>
